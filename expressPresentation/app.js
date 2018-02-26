@@ -8,6 +8,9 @@ const bodyParser = require('body-parser')
 const index = require('./routes/index')
 const users = require('./routes/users')
 
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost:27017/presentation')
+
 const app = express()
 
 // view engine setup

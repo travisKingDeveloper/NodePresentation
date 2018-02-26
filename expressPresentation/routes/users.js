@@ -1,10 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
-const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/presentation')
-
-const User = require('../repository/userSchema')
+const User = require('../models/userSchema')
+const RequestFakeData = require('../offlineprocess')
 
 router.get('/', function(req, res) {
   User.find({}, function(err, users) {
@@ -42,6 +40,10 @@ router.post('/', function(req, res) {
       })
     }
   })
+})
+
+router.post('/fakeData', function(req, res) {
+  RequestFakeData()
 })
 
 module.exports = router
