@@ -1,35 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Users</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <a href="/users">Users</a>
+    <h1>Users</h1>
+    <p>Welcome to the User Page</p>
+    <table style="width: 100%">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                User Name
+            </th>
+            <th>
+                Password
+            </th>
+            <th>
+                Admin
+            </th>
+        </tr>
 
-    <form action="/users" method="post">
-      <label for="name">Enter name: </label>
-      <input id="name" type="text" name="name" placeholder="Name">
-      <label for="username">Enter username: </label>
-      <input id="username" type="text" name="username" placeholder="User Name">
-      <label for="password">Enter password: </label>
-      <input id="password" type="text" name="password" placeholder="Password">
-      <br />
-      <input type="submit" value="Submit Data">
-    </form>
+        <% users.forEach(function (user) { %>
+            <tr>
+                <td>
+                    <%= user.name %>
+                </td>
+                <td>
+                    <%= user.username %>
+                </td>
+                <td>
+                    <%= user.password %>
+                </td>
+                <td>
+                    <%= user.admin ? "ADMIN" : "NOT ADMIN" %>
+                </td>
+            </tr>
+        <% }) %>
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    
-    <form action="/users/fakeData" method="POST">
-      <input type="submit" value="FAKE DATA" />
-    </form>
+
+    </table>
 
   </body>
 </html>

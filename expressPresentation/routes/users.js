@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
   User.find({}, function(err, users) {
     if (err) return res.status(500).send("There was a problem finding the users")
 
-    res.status(200).send(users)
+    res.render('users', { users })
   })
 })
 
@@ -29,10 +29,7 @@ router.post('/', function(req, res) {
 
   user.save(function (err) {
     if(!err) {
-      return res.json({
-        status: 'OK',
-        user,
-      })
+      res.redirect('/users')
     } else {
       res.statusCode = 500
       res.json({
