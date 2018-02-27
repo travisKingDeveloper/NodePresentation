@@ -4,15 +4,16 @@ const router = express.Router()
 const User = require('../models/userSchema')
 const RequestFakeData = require('../offlineprocess')
 
-router.get('/', function(req, res) {
-  User.find({}, function(err, users) {
-    if (err) return res.status(500).send("There was a problem finding the users")
+router.get('/', async (req, res) => {
+    const users = await User.find()
+
+    if (!users || users.length == 0) 
+      return res.status(404).send("No Users Found")
 
     res.render('users', { users })
-  })
 })
 
-router.post('/', function(req, res) {
+router.post('/', async (req, res) => {
   const {
     name,
     username,
@@ -27,16 +28,9 @@ router.post('/', function(req, res) {
     admin: false,
   })
 
-  user.save(function (err) {
-    if(!err) {
-      res.redirect('/users')
-    } else {
-      res.statusCode = 500
-      res.json({
-        error: err
-      })
-    }
-  })
+  await user.save()
+
+  res.redirect('/users')
 })
 
 router.post('/fakeData', function(req, res) {
