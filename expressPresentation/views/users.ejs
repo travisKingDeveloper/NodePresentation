@@ -9,6 +9,9 @@
     <p>Welcome to the User Page</p>
     <table style="width: 100%">
         <tr>
+            <th style="width: 20%">
+                Id
+            </th>
             <th>
                 Name
             </th>
@@ -25,6 +28,9 @@
 
         <% users.forEach(function (user) { %>
             <tr>
+                <td>
+                    <%= user._id %>
+                </td>
                 <td>
                     <%= user.name %>
                 </td>

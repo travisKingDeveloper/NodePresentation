@@ -1,0 +1,11 @@
+{
+    "amqp": {
+      "connectionUri": "AMQP_CONNECTION-URI",
+      "queueOptions": {
+          "queue": "AMQP_QUEUE"
+      }
+    },
+    "mongodb": {
+      "connectionUri": "MONGODB_CONNECTION-URI"
+    }
+  }

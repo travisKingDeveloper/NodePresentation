@@ -7,8 +7,15 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}\\bin\\www"
+            "name": "Debug",
+            "program": "${workspaceFolder}\\bin\\www",
+            "cwd": "${workspaceRoot}",
+            "console": "integratedTerminal",
+            "outputCapture": "std",
+            "env": {
+                "NODE_ENV": "debug",
+                "PORT": "3000"
+            }
         }
     ]
 }

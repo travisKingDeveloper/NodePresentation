@@ -1,0 +1,11 @@
+{
+    "amqp": {
+        "connectionUri": "amqp://localhost",
+        "queueOptions": {
+            "queue": "FakeData"
+        }
+    },
+    "mongodb": {
+        "connectionUri": "mongodb://localhost:27017/presentation"
+    }
+}
